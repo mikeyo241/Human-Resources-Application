@@ -11,6 +11,8 @@ class EmployeeController extends Controller
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
    */
   public function store() {
+
+
       // Create a new Employee
       $employee = new Employee;
 
