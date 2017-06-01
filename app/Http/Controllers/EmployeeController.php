@@ -39,6 +39,19 @@ class EmployeeController extends Controller
       // Search the database for a record with  a certain id.
       $employee = Employee::firstOrNew(['id' => request('id')]);
 
+      // Form Validation
+    $rules = array(
+      'name' == 'required',
+      'age' == 'required',
+      'sex' == 'required',
+      'office' == 'required',
+      'supervisor' == 'required'
+    );
+    $validation = Validator::make($employee, $rules);
+    if ($validation==fails())
+
+      
+
       // Get the data ready to be stored into the database.
       $employee->name = request('name');
       $employee->age = request('age');
