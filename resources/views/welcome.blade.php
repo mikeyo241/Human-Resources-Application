@@ -5,11 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>HR System</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <!-- Animate Css  -->
+        <link href="{{ asset('css/animate.css') }}" rel="stylesheet" />
         <!-- Styles -->
         <style>
             html, body {
@@ -47,6 +48,7 @@
 
             .title {
                 font-size: 84px;
+                text-shadow: 1px 1px black;
             }
 
             .links > a {
@@ -57,6 +59,9 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+            }
+            .links > a:hover {
+                font-size: 14px;
             }
 
             .m-b-md {
@@ -78,12 +83,12 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md animated zoomIn">
                     Human Resources System
                 </div>
 
                 <div class="links">
-                    <h4>Michael Allender Gardner</h4>
+                    <a href="https://github.com/mikeyo241/" target="_blank">Created by Michael Gardner</a>
                     <a href="hrSystem">Enter the System</a>
 
                 </div>
