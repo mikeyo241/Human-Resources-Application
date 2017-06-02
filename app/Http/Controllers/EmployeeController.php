@@ -2,25 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateEmployeeRequest;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use App\Employee;
 class EmployeeController extends Controller
 {
   /**
    * This funtion is used to store a new employee into the database.
+   * @param CreateEmployeeRequest $request
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
    */
-  public function store() {
+  public function store(CreateEmployeeRequest $request) {
 
 
       // Create a new Employee
       $employee = new Employee;
 
       // Get the data ready to be stored into the database.
-      $employee->name = request('name');
-      $employee->age = request('age');
-      $employee->sex = request('sex');
-      $employee->office = request('office');
+      $employee->name   =     request('name');
+      $employee->age    =     request('age');
+      $employee->sex    =     request('sex');
+      $employee->office =     request('office');
       $employee->supervisor = request('supervisor');
 
       // Save the employee to the database.
@@ -39,24 +42,12 @@ class EmployeeController extends Controller
       // Search the database for a record with  a certain id.
       $employee = Employee::firstOrNew(['id' => request('id')]);
 
-      // Form Validation
-    $rules = array(
-      'name' == 'required',
-      'age' == 'required',
-      'sex' == 'required',
-      'office' == 'required',
-      'supervisor' == 'required'
-    );
-    $validation = Validator::make($employee, $rules);
-    if ($validation==fails())
-
-      
 
       // Get the data ready to be stored into the database.
-      $employee->name = request('name');
-      $employee->age = request('age');
-      $employee->sex = request('sex');
-      $employee->office = request('office');
+      $employee->name   =     request('name');
+      $employee->age    =     request('age');
+      $employee->sex    =     request('sex');
+      $employee->office =     request('office');
       $employee->supervisor = request('supervisor');
 
       // Save changes made to the database.
