@@ -13,16 +13,13 @@ class CreateEmployeesTable extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
-          $table->increments('id');
-          $table->string('name');
-          $table->integer('age');
-          $table->string('sex', 6);
-          $table->string('office');
-          $table->timestamps();
-          $table->boolean('deleted')->default(0);
-          $table->boolean('is_supervisor')->default(0);
-          $table->integer('supervisor')->default(NULL);
+        Schema::create('EMPLOYEES', function (Blueprint $table) {
+          $table->increments('EMP_ID');
+          $table->string('EMP_OFFICE');
+          $table->increments('PER_ID');
+          $table->integer('SUPERVISOR_ID')->default(NULL);
+          $table->foreign('SUPERVISOR_ID')->references('SUP_ID')->on('SUPERVISORS');
+          $table->foreign('PER_ID')->references('PER_ID')->on('PERSONS');
         });
     }
 
@@ -34,5 +31,6 @@ class CreateEmployeesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('employees');
+        Schema::dropIfExists('EMPLOYEES');
     }
 }
